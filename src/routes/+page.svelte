@@ -1,5 +1,4 @@
 <script lang="ts">
-  import CarouselComp from "../components/CarouselComp.svelte";
   import MoviesGrid from "../components/MoviesGrid.svelte";
   import type { MovieInterface } from "../interface/Movie";
 
