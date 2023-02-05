@@ -2,7 +2,7 @@
   import "../app.css";
   import Icon from "@iconify/svelte";
   import Logo from "../components/svg/logo.svelte";
-  import NavSearch from "../components/layuout/NavSearch.svelte";
+  import NavSearch from "../components/layout/NavSearch.svelte";
 
   let isMenuOpen = false;
 
@@ -20,7 +20,7 @@
     class="w-full h-16 bg-zinc-800 text-white shadow-md flex items-center col-span-2 z-10"
   >
     <div class="ml-2 mr-6">
-      <button on:click={toggleMenu}>
+      <button class="max-md:hidden" on:click={toggleMenu}>
         {#if isMenuOpen}
           <Icon icon="ic:baseline-close" width="32" height="32" />
         {:else}
@@ -61,7 +61,7 @@
     </nav>
   </aside>
 
-  <div class="bg-zinc-600 min-h-[90vh]">
+  <div class="bg-zinc-600 col-span-1 min-h-[90vh]">
     <slot />
   </div>
 </div>
@@ -85,5 +85,11 @@
 
   .grid-layout-closed {
     grid-template-columns: 3rem 1fr;
+  }
+
+  @media (max-width: 768px) {
+    .grid-layout {
+      grid-template-columns: 3rem 1fr;
+    }
   }
 </style>

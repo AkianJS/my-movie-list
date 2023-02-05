@@ -4,13 +4,13 @@
   const image = "https://image.tmdb.org/t/p/w500";
 </script>
 
-<section class="my-6">
+<div class="my-6">
   <ul>
     {#each movies.results as movie}
-      <a href={movie.title? `/movies/${movie.id}` : `/series/${movie.id}`}>
-        <li>
+      <li>
+        <a href={movie.title ? `/movies/${movie.id}` : `/series/${movie.id}`}>
           <img
-          class="h-[348px]"
+            class="h-[348px]"
             width="232"
             height="348"
             src={movie.poster_path
@@ -19,8 +19,8 @@
             alt={movie.title || movie.name}
           />
           <h1 class="text-center font-bold">{movie.title || movie.name}</h1>
-        </li>
-      </a>
+        </a>
+      </li>
     {/each}
   </ul>
   <div class="mt-8 flex gap-6 justify-center">
@@ -28,7 +28,7 @@
     <button>med</button>
     <button>der</button>
   </div>
-</section>
+</div>
 
 <style>
   ul {
@@ -36,5 +36,16 @@
     grid-template-columns: repeat(auto-fill, 232px);
     place-content: center;
     gap: 1rem;
+  }
+
+  @media (max-width: 560px) {
+    ul {
+      grid-template-columns: 1fr;
+    }
+    img {
+      width: 360px;
+      height: auto;
+      margin: 0 auto;
+    }
   }
 </style>

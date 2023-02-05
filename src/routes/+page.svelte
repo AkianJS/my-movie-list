@@ -1,4 +1,5 @@
 <script lang="ts">
+  import CarouselComp from "../components/CarouselComp.svelte";
   import MoviesGrid from "../components/MoviesGrid.svelte";
   import type { MovieInterface } from "../interface/Movie";
 
@@ -24,15 +25,17 @@
   export let data: DataType;
 </script>
 
+<CarouselComp {images} />
+
 <section class="px-4">
-  <h1 class="my-6 text-4xl uppercase font-semibold">
+  <h1 class="my-6 text-2xl sm:text-3xl lg:text-4xl uppercase font-semibold">
     Descubre nuevas películas..!
   </h1>
   <MoviesGrid movies={data.movies} />
 </section>
 
 <section class="px-4">
-  <h1 class="mt-10 mb-6 text-4xl uppercase font-semibold">
+  <h1 class="my-6 text-2xl sm:text-3xl lg:text-4xl uppercase font-semibold">
     Series que no te podés perder!
   </h1>
   <MoviesGrid movies={data.series} />

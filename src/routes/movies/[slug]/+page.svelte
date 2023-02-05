@@ -1,13 +1,13 @@
 <script lang="ts">
   import type { ImageInterface } from "../../../interface/Images";
   import type { Movie } from "../../../interface/Movie";
-
-  export let data: DataType;
-
   type DataType = {
     movie: Movie;
     images: ImageInterface;
   };
+
+  export let data: DataType;
+
 
   let { movie, images } = data;
   const backdropImage = images.backdrops[0]
