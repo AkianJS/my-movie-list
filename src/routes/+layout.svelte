@@ -17,7 +17,7 @@
   }`}
 >
   <div
-    class="w-full h-16 bg-zinc-800 text-white shadow-md flex items-center col-span-2 z-10"
+    class="w-full h-16 bg-zinc-800 text-white shadow-md flex items-center col-span-2 sticky top-0 z-10"
   >
     <div class="ml-2 mr-6">
       <button class="max-md:hidden" on:click={toggleMenu}>
@@ -37,9 +37,13 @@
   </div>
 
   <aside
-    class="bg-zinc-800 text-white duration-200 h-full top-16 max-w-full overflow-x-hidden z-10"
+    class="bg-zinc-800 text-white duration-200 h-full max-w-full overflow-x-hidden sticky top-16"
   >
-    <nav class="flex flex-col justify-start gap-4 text-lg max-w-full h-full">
+    <nav
+      class={`flex flex-col justify-start gap-4 text-lg duration-100 ${isMenuOpen
+        ? 'max-w-full'
+        : 'max-w-[2rem]'} h-full fixed overflow-hidden`}
+    >
       <a data-sveltekit-reload href="/">
         <span class="text-2xl">
           <Icon inline icon="ic:sharp-home" />

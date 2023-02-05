@@ -3,8 +3,8 @@ import getMovies from "../../../api/getMovies";
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = (async ({ params }) => {
-  const movie = await getMovies("/movie/" + params.slug);
-  const images = await getMovies(`/movie/${params.slug}/images?language=en`);
+  const movie = await getMovies("/movie/" + params.slug + "?language=es");
+  const images = await getMovies(`/movie/${params.slug}/images?language=es`);
 
   if (movie) {
     return {

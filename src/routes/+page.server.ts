@@ -4,8 +4,8 @@ import type { MovieInterface } from "../interface/Movie";
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = (async () => {
-  const movies: MovieInterface = await getMovies("/discover/movie");
-  const series: MovieInterface = await getMovies("/discover/tv");
+  const movies: MovieInterface = await getMovies("/discover/movie?language=es");
+  const series: MovieInterface = await getMovies("/discover/tv?language=es");
   const upcoming: MovieInterface = await getMovies("/movie/upcoming");
   const backdrops = upcoming.results
     .filter((item) => item.backdrop_path !== null)
