@@ -7,7 +7,7 @@ export interface MovieInterface {
 
 export type Movie = {
     adult: boolean
-    backgrop_path: string
+    backdrop_path: string
     genre_ids: []
     original_language: string
     original_title: string

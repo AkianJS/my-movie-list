@@ -4,9 +4,9 @@
   export let images: { title: string; src: string }[];
 </script>
 
-<header class="max-w-5xl mx-auto">
+<header class="max-w-5xl mx-auto my-8">
   <Splide
-    options={{ rewind: true }}
+    options={{ rewind: true, autoplay: true, }}
     hasTrack={false}
     aria-label="Header Slider"
   >
