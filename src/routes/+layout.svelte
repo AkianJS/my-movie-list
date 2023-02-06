@@ -4,7 +4,7 @@
   import Logo from "../components/svg/logo.svelte";
   import NavSearch from "../components/layout/NavSearch.svelte";
 
-  let isMenuOpen = false;
+  let isMenuOpen = true;
 
   const toggleMenu = () => {
     isMenuOpen = !isMenuOpen;
@@ -40,7 +40,7 @@
     class="bg-zinc-800 text-white duration-200 h-full max-w-full overflow-x-hidden sticky top-16"
   >
     <nav
-      class={`flex flex-col justify-start gap-4 text-lg duration-100 ${isMenuOpen
+      class={`flex flex-col justify-start gap-4 text-lg duration-100 max-md:max-w-[2rem] ${isMenuOpen
         ? 'max-w-full'
         : 'max-w-[2rem]'} h-full fixed overflow-hidden`}
     >
