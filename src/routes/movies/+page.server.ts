@@ -8,8 +8,8 @@ export const load = (async ({ url }) => {
   const page = url.searchParams.get("page") || "";
   const movies:MovieInterface =
     query !== ""
-      ? await getMovies(`/search/movie?page=1&query=${query}`)
-      : await getMovies(`/discover/movie?page=${page}`);
+      ? await getMovies(`/search/movie?page=1&language=es&query=${query}`)
+      : await getMovies(`/discover/movie?language=es&page=${page}`);
 
   if (movies) {
     return { movies };

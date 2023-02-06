@@ -1,5 +1,5 @@
 <script lang="ts">
-  import CarouselComp from "../components/CarouselComp.svelte";
+  import CarouselComp from "../components/ImageCarousel.svelte";
   import MoviesGrid from "../components/MoviesGrid.svelte";
   import SeriesGrid from "../components/SeriesGrid.svelte";
   import type { PageData } from "./$types";
@@ -11,15 +11,21 @@
 <CarouselComp images={data.backdrops} />
 
 <section class="px-4">
-  <h1 class="my-6 text-2xl sm:text-3xl lg:text-4xl uppercase font-semibold">
+  <h1 class="my-6 font-semibold">
     Descubre nuevas películas..!
   </h1>
-  <MoviesGrid movies={data.movies} />
+  <MoviesGrid isLoadMore={false} movies={data.movies} />
 </section>
 
-<section class="px-4">
-  <h1 class="my-6 text-2xl sm:text-3xl lg:text-4xl uppercase font-semibold">
+<section class="px-4 ">
+  <h1 class="my-6 font-semibold">
     Series que no te podés perder!
   </h1>
   <SeriesGrid series={data.series} />
 </section>
+
+<style>
+  h1 {
+    font-size: clamp(1.5rem, 3vw, 3rem);
+  }
+</style>

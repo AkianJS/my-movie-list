@@ -1,18 +1,24 @@
 <script lang="ts">
+  import { stringify } from "postcss";
   import type { PageData } from "../routes/series/[slug]/$types";
 
   export let data: PageData;
 
-  let { serie, images } = data;
+  let { serie, images, videos } = data;
   const backdropImage = images.backdrops[0]
     ? `https://image.tmdb.org/t/p/original${images.backdrops[0].file_path}`
     : "/src/assets/image-placeholder.png";
   const posterImage = images.posters[0]
     ? `https://image.tmdb.org/t/p/original${images.posters[0].file_path}`
     : "/src/assets/image-placeholder.png";
+
+  const trailer = videos.results.map(
+    ({ site, key }: { site: string; key: string }) =>
+      site === "YouTube" ? key : null
+  );
 </script>
 
-<section class="min-h-screen bg-gradient-to-tr from-zinc-600 to-zinc-700">
+<section class="min-h-screen bg-gradient-to-tr from-zinc-600 to-zinc-700 mb-8">
   <div class="image2-container absolute top-16 right-0 opacity-70">
     <div
       style={`background-image: url(${backdropImage})`}
@@ -35,6 +41,32 @@
       <h1><strong> Título original: </strong>{serie.original_name}</h1>
       <h1><strong> Título: </strong>{serie.name}</h1>
       <p><strong> Descripción: </strong>{serie.overview}</p>
+      <p>
+        <strong> Estado: </strong>{serie.in_production
+          ? "En producción"
+          : "Finalizada"}
+      </p>
+      <p>
+        <strong>Géneros: </strong>{serie.genres
+          ?.map((item) => item.name)
+          .join(", ")}
+      </p>
+      <p><strong>Espisodios: </strong> {serie.number_of_episodes}</p>
+      <embed src="" type="" />
+    </div>
+
+    <div
+      class="relative mx-auto min-w-[380px] w-[60vw] max-w-[768px] h-[40vw] max-h-[420px] z-[1]"
+    >
+      <iframe
+        class="absolute top-0 left-0 w-full h-full"
+        allowfullscreen
+        title={serie.name}
+        width="100%"
+        height="100%"
+        src={"https://www.youtube.com/embed/" + trailer[2]}
+        frameborder="0"
+      />
     </div>
   </main>
 </section>

@@ -1,8 +1,17 @@
 <script lang="ts">
   import type { MovieInterface } from "../interface/Movie";
+  import PrevAndNext from "./PrevAndNext.svelte";
   export let movies: MovieInterface;
+  export let isLoadMore: boolean = true;
   const image = "https://image.tmdb.org/t/p/w500";
 </script>
+
+<PrevAndNext
+  direction="movies"
+  {isLoadMore}
+  page={movies.page}
+  totalPages={movies.total_pages}
+/>
 
 <div class="my-6">
   <ul>
@@ -23,11 +32,13 @@
       </li>
     {/each}
   </ul>
-  <div class="mt-8 flex gap-6 justify-center">
-    <button>iz</button>
-    <button>med</button>
-    <button>der</button>
-  </div>
+
+  <PrevAndNext
+    direction="movies"
+    {isLoadMore}
+    page={movies.page}
+    totalPages={movies.total_pages}
+  />
 </div>
 
 <style>

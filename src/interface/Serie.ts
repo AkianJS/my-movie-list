@@ -1,6 +1,7 @@
 export interface SeriesInterface {
   page: number;
   results: SeriesResults[];
+  total_pages: number
 }
 export type SeriesResults = {
   backdrop_path: string;

@@ -5,17 +5,27 @@ import type { Serie } from "../../../interface/Serie";
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = (async ({ params }) => {
-  const serie: Serie = await getMovies(
+  let serie: Serie = await getMovies(
     `/tv/${params.slug}?language=es`
   );
+  
+  if (serie.overview === '') {
+    serie = await getMovies(
+      `/tv/${params.slug}`
+    );
+  }
+
   const images: ImageInterface = await getMovies(
-    `/tv/${params.slug}/images?language=es`
+    `/tv/${params.slug}/images`
   );
+
+  const videos = await getMovies(`/tv/${params.slug}/videos`)
 
   if (serie) {
     return {
       serie,
       images,
+      videos
     };
   }
   throw error(404, "No se pudo encontrar la página");
