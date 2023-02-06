@@ -1,14 +1,14 @@
 <script lang="ts">
-  import type { MovieInterface } from "../interface/Movie";
-  export let movies: MovieInterface;
+  import type { SeriesInterface } from "../interface/Serie";
+  export let series: SeriesInterface;
   const image = "https://image.tmdb.org/t/p/w500";
 </script>
 
 <div class="my-6">
   <ul>
-    {#each movies.results as movie}
+    {#each series.results as movie}
       <li>
-        <a href={`/movies/${movie.id}`}>
+        <a href={`/series/${movie.id}`}>
           <img
             class="h-[348px]"
             width="232"
@@ -16,9 +16,9 @@
             src={movie.poster_path
               ? image + movie.poster_path
               : "/src/assets/image-placeholder.png"}
-            alt={movie.title}
+            alt={movie.name}
           />
-          <h1 class="text-center font-bold">{movie.title}</h1>
+          <h1 class="text-center font-bold">{movie.name}</h1>
         </a>
       </li>
     {/each}
