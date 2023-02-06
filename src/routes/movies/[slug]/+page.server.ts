@@ -9,7 +9,7 @@ export const load: PageServerLoad = (async ({ params }) => {
     "/movie/" + params.slug + "?language=es"
   );
   const images: ImageInterface = await getMovies(
-    `/movie/${params.slug}/images?language=es`
+    `/movie/${params.slug}/images`
   );
 
   if (movie) {
