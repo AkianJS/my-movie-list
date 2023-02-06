@@ -17,7 +17,7 @@
   );
 </script>
 
-<section class="min-h-screen w-[100%] bg-gradient-to-tr from-zinc-600 to-zinc-700 mb-8">
+<section class="min-h-screen w-full bg-gradient-to-tr from-zinc-600 to-zinc-700 mb-8">
   <div class="image2-container absolute top-16 right-0 opacity-70">
     <div
       style={`background-image: url(${backdropImage})`}

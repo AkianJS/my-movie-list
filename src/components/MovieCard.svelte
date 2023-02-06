@@ -14,7 +14,7 @@
     : "/src/assets/image-placeholder.png";
 </script>
 
-<section class="min-h-screen bg-gradient-to-tr from-zinc-600 to-zinc-700">
+<section class="min-h-screen w-full bg-gradient-to-tr from-zinc-600 to-zinc-700">
     <div class="image2-container absolute top-16 right-0 opacity-70">
       <div
         style={`background-image: url(${backdropImage})`}
@@ -24,7 +24,7 @@
     <main class="flex gap-6 flex-wrap px-8 relative max-[967px]:justify-center">
       <div class="mt-8">
         <img
-          class=""
+          class="object-cover"
           width="320"
           height="480"
           src={posterImage}
@@ -32,7 +32,7 @@
         />
       </div>
       <div
-        class="my-8 min-w-[380px] max-w-lg text-start text-xl text-neutral-200 space-y-3"
+        class="my-8 min-w-[80%] max-w-lg text-start text-xl text-neutral-200 space-y-3"
       >
         <h1><strong> Title: </strong>{movie.title}</h1>
         <p><strong> Description: </strong>{movie.overview}</p>
