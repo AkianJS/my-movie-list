@@ -24,7 +24,7 @@
       class="image-container absolute bg-teal-800 top-0 right-0"
     />
   </div>
-  <main class="flex gap-6 flex-wrap px-8 relative max-[967px]:justify-center">
+  <main class="flex gap-6 flex-wrap px-8 relative max-[1080px]:justify-center">
     <div class="mt-8">
       <img
         class="object-cover"
@@ -35,7 +35,7 @@
       />
     </div>
     <div
-      class="my-8 min-w-[80%] max-w-lg text-start text-xl text-neutral-200 space-y-3"
+      class="my-8 min-w-[240px] max-w-lg text-start text-xl text-neutral-200 space-y-3"
     >
       <h1><strong> Título original: </strong>{serie.original_name}</h1>
       <h1><strong> Título: </strong>{serie.name}</h1>
