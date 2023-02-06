@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { stringify } from "postcss";
   import type { PageData } from "../routes/series/[slug]/$types";
 
   export let data: PageData;
@@ -18,7 +17,7 @@
   );
 </script>
 
-<section class="min-h-screen bg-gradient-to-tr from-zinc-600 to-zinc-700 mb-8">
+<section class="min-h-screen w-[100%] bg-gradient-to-tr from-zinc-600 to-zinc-700 mb-8">
   <div class="image2-container absolute top-16 right-0 opacity-70">
     <div
       style={`background-image: url(${backdropImage})`}
@@ -28,7 +27,7 @@
   <main class="flex gap-6 flex-wrap px-8 relative max-[967px]:justify-center">
     <div class="mt-8">
       <img
-        class=""
+        class="object-cover"
         width="320"
         height="480"
         src={posterImage}
@@ -36,7 +35,7 @@
       />
     </div>
     <div
-      class="my-8 min-w-[380px] max-w-lg text-start text-xl text-neutral-200 space-y-3"
+      class="my-8 min-w-[80%] max-w-lg text-start text-xl text-neutral-200 space-y-3"
     >
       <h1><strong> Título original: </strong>{serie.original_name}</h1>
       <h1><strong> Título: </strong>{serie.name}</h1>
@@ -54,21 +53,20 @@
       <p><strong>Espisodios: </strong> {serie.number_of_episodes}</p>
       <embed src="" type="" />
     </div>
-
-    <div
-      class="relative mx-auto min-w-[380px] w-[60vw] max-w-[768px] h-[40vw] max-h-[420px] z-[1]"
-    >
-      <iframe
-        class="absolute top-0 left-0 w-full h-full"
-        allowfullscreen
-        title={serie.name}
-        width="100%"
-        height="100%"
-        src={"https://www.youtube.com/embed/" + trailer[2]}
-        frameborder="0"
-      />
-    </div>
   </main>
+  <div
+    class="relative mx-auto my-8 min-w-[80%] w-[60vw] max-w-[768px] h-[40vw] max-h-[420px] z-[1]"
+  >
+    <iframe
+      class="absolute top-0 left-0 w-full h-full"
+      allowfullscreen
+      title={serie.name}
+      width="100%"
+      height="100%"
+      src={"https://www.youtube.com/embed/" + trailer[0]}
+      frameborder="0"
+    />
+  </div>
 </section>
 
 <style>

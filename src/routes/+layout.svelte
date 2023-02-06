@@ -12,14 +12,14 @@
 </script>
 
 <div
-  class={`grid duration-200 ${
+  class={`grid duration-200 overflow-hidden ${
     isMenuOpen ? "grid-layout" : "grid-layout-closed"
   }`}
 >
   <div
-    class="w-full h-16 bg-zinc-800 text-white shadow-md flex items-center col-span-2 sticky top-0 z-10"
+    class="w-full h-16 bg-zinc-800 text-white shadow-md flex items-center col-span-2 right-0 top-0 z-10"
   >
-    <div class="ml-2 mr-6">
+    <div class="inline-block ml-2 mr-6">
       <button class="max-md:hidden" on:click={toggleMenu}>
         {#if isMenuOpen}
           <Icon icon="ic:baseline-close" width="32" height="32" />
@@ -28,7 +28,8 @@
         {/if}
       </button>
     </div>
-    <nav class="w-full h-full">
+
+    <nav class=" h-full">
       <ul class="max-w-screen-xl mx-auto h-full flex items-center gap-6">
         <li><svelte:component this={Logo} /></li>
         <li><NavSearch /></li>
