@@ -1,9 +1,13 @@
 <script lang="ts">
   import MovieCard from "../../../components/MovieCard.svelte";
-import type { PageData } from "./$types";
+  import type { PageData } from "./$types";
 
   export let data: PageData;
 </script>
 
-<MovieCard {data}/>
+<svelte:head>
+  <title>{data.movie.title}</title>
+  <meta name="description" content={data.movie.overview} />
+</svelte:head>
 
+<MovieCard {data} />

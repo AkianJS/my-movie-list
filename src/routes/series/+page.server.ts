@@ -9,7 +9,7 @@ export const load: PageServerLoad = (async ({url}) => {
 
     if (series) {
         return {
-            series
+            series, animation: false
         }
     }
 

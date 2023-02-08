@@ -6,6 +6,9 @@
 
   export let data: PageData;
 
+$:data, setTimeout(() => {
+  data.animation = true
+}, 100)
 </script>
 
 <CarouselComp images={data.backdrops} />
@@ -14,14 +17,14 @@
   <h1 class="my-6 font-semibold">
     Descubre nuevas películas..!
   </h1>
-  <MoviesGrid isLoadMore={false} movies={data.movies} />
+  <MoviesGrid animation={data.animation} isLoadMore={false} movies={data.movies} />
 </section>
 
 <section class="px-4 ">
   <h1 class="my-6 font-semibold">
     Series que no te podés perder!
   </h1>
-  <SeriesGrid series={data.series} />
+  <SeriesGrid animation={data.animation} series={data.series} />
 </section>
 
 <style>

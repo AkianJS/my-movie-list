@@ -5,9 +5,16 @@ import type { Movie } from "../../../interface/Movie";
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = (async ({ params }) => {
-  const movie: Movie = await getMovies(
-    "/movie/" + params.slug + "?language=es"
+  let movie: Movie = await getMovies(
+    `/movie/${params.slug}?language=es`
   );
+
+  if (movie.overview === '') {
+    movie = await getMovies(
+      `/movie/${params.slug}`
+    );
+  }
+
   const images: ImageInterface = await getMovies(
     `/movie/${params.slug}/images`
   );

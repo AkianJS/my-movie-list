@@ -15,11 +15,13 @@ export const load: PageServerLoad = (async () => {
       title: item.title,
     }));
 
+    console.log(backdrops)
   if (movies) {
     return {
       movies,
       series,
       backdrops,
+      animation: false
     };
   }
 

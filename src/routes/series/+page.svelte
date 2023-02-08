@@ -2,10 +2,13 @@
   import PrevAndNext from "../../components/PrevAndNext.svelte";
   import SeriesGrid from "../../components/SeriesGrid.svelte";
   import type { PageData } from "./$types";
-  export let data:PageData
-  let isLoadMore = true
+  export let data: PageData;
+  let isLoadMore = true;
 
-$:(data)
+  $: data,
+    setTimeout(() => {
+      data.animation = true;
+    }, 100);
 </script>
 
 <PrevAndNext
@@ -15,4 +18,4 @@ $:(data)
   totalPages={data.series.total_pages}
 />
 
-<SeriesGrid series={data.series} />
+<SeriesGrid animation={data.animation} series={data.series} />

@@ -1,9 +1,12 @@
 <script lang="ts">
+  import { fly } from "svelte/transition";
   import type { MovieInterface } from "../interface/Movie";
   import PrevAndNext from "./PrevAndNext.svelte";
   export let movies: MovieInterface;
   export let isLoadMore: boolean = true;
   const image = "https://image.tmdb.org/t/p/w500";
+
+  export let animation: boolean;
 </script>
 
 <PrevAndNext
@@ -15,22 +18,24 @@
 
 <div class="my-6">
   <ul>
-    {#each movies.results as movie}
-      <li>
-        <a href={`/movies/${movie.id}`}>
-          <img
-            class="h-[348px]"
-            width="232"
-            height="348"
-            src={movie.poster_path
-              ? image + movie.poster_path
-              : "/src/assets/image-placeholder.png"}
-            alt={movie.title}
-          />
-          <h1 class="text-center font-bold">{movie.title}</h1>
-        </a>
-      </li>
-    {/each}
+    {#if animation}
+      {#each movies.results as movie, i}
+        <li in:fly={{ delay: 100 * i, duration: 400, y: 100 }}>
+          <a href={`/movies/${movie.id}`}>
+            <img
+              class="h-[348px]"
+              width="232"
+              height="348"
+              src={movie.poster_path
+                ? image + movie.poster_path
+                : "/src/assets/image-placeholder.png"}
+              alt={movie.title}
+            />
+            <h1 class="text-center font-bold">{movie.title}</h1>
+          </a>
+        </li>
+      {/each}
+    {/if}
   </ul>
 
   <PrevAndNext

@@ -12,7 +12,7 @@ export const load = (async ({ url }) => {
       : await getMovies(`/discover/movie?language=es&page=${page}`);
 
   if (movies) {
-    return { movies };
+    return { movies, animation: false };
   }
 
   throw error(404, "Servidor caído");
