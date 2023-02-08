@@ -1,12 +1,21 @@
 <script lang="ts">
   import { fly } from "svelte/transition";
   import type { SeriesInterface } from "../interface/Serie";
+  import PrevAndNext from "./PrevAndNext.svelte";
   export let series: SeriesInterface;
   export let animation: boolean;
+
+  export let isLoadMore = true;
 
   const image = "https://image.tmdb.org/t/p/w500";
 </script>
 
+<PrevAndNext
+  direction="series"
+  {isLoadMore}
+  page={series.page}
+  totalPages={series.total_pages}
+/>
 <div class="my-6">
   <ul>
     {#if animation}
@@ -28,11 +37,12 @@
       {/each}
     {/if}
   </ul>
-  <div class="mt-8 flex gap-6 justify-center">
-    <button>iz</button>
-    <button>med</button>
-    <button>der</button>
-  </div>
+  <PrevAndNext
+    direction="series"
+    {isLoadMore}
+    page={series.page}
+    totalPages={series.total_pages}
+  />
 </div>
 
 <style>

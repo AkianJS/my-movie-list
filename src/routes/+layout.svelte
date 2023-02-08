@@ -17,7 +17,7 @@
   }`}
 >
   <div
-    class="w-full h-16 bg-zinc-800 text-white shadow-md flex items-center col-span-2 right-0 top-0 z-10"
+    class="w-full h-16 bg-zinc-800 text-white shadow-md flex items-center col-span-2 sticky right-0 top-0 z-10"
   >
     <div class="inline-block ml-2 mr-6">
       <button class="max-md:hidden" on:click={toggleMenu}>
@@ -38,12 +38,12 @@
   </div>
 
   <aside
-    class="bg-zinc-800 text-white duration-200 h-full max-w-full overflow-x-hidden sticky top-16"
+    class="bg-zinc-800 text-white duration-200 h-full max-w-full"
   >
     <nav
-      class={`flex flex-col justify-start gap-4 text-lg duration-100 max-md:max-w-[2rem] ${isMenuOpen
-        ? 'max-w-full'
-        : 'max-w-[2rem]'} h-full fixed overflow-hidden`}
+      class={`flex flex-col justify-start gap-4 text-lg duration-100 max-md:w-[3rem] h-full fixed overflow-hidden ${isMenuOpen
+        ? 'w-40'
+        : 'max-w-[3rem] w-12'} `}
     >
       <a data-sveltekit-reload href="/">
         <span class="text-2xl">
@@ -66,7 +66,7 @@
     </nav>
   </aside>
 
-  <div class="bg-zinc-600 col-span-1 min-h-[90vh]">
+  <div class="bg-zinc-600 min-h-[90vh]">
     <slot />
   </div>
 </div>

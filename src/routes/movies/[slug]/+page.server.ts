@@ -1,11 +1,11 @@
 import { error } from "@sveltejs/kit";
 import getMovies from "../../../api/getMovies";
 import type { ImageInterface } from "../../../interface/Images";
-import type { Movie } from "../../../interface/Movie";
+import type { MovieDetail } from "../../../interface/Movie";
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = (async ({ params }) => {
-  let movie: Movie = await getMovies(
+  let movie: MovieDetail = await getMovies(
     `/movie/${params.slug}?language=es`
   );
 
@@ -19,10 +19,13 @@ export const load: PageServerLoad = (async ({ params }) => {
     `/movie/${params.slug}/images`
   );
 
+  const videos = await getMovies(`/movie/${params.slug}/videos`)
+
   if (movie) {
     return {
       movie,
       images,
+      videos
     };
   } else {
     throw error(404, "No se puede encontrar la página");

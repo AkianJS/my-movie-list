@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Icon from "@iconify/svelte";
   import type { PageData } from "../routes/series/[slug]/$types";
 
   export let data: PageData;
@@ -17,7 +18,9 @@
   );
 </script>
 
-<section class="min-h-screen w-full bg-gradient-to-tr from-zinc-600 to-zinc-700 mb-8">
+<section
+  class="min-h-screen w-full bg-gradient-to-tr from-zinc-600 to-zinc-700 mb-8"
+>
   <div class="image2-container absolute top-16 right-0 opacity-70">
     <div
       style={`background-image: url(${backdropImage})`}
@@ -51,22 +54,34 @@
           .join(", ")}
       </p>
       <p><strong>Espisodios: </strong> {serie.number_of_episodes}</p>
-      <embed src="" type="" />
+      <p class="flex gap-2 items-center">
+        <strong>Puntuación:</strong>
+        {serie.vote_average.toFixed(2)}
+        <span class="text-yellow-400">
+          <Icon width="28" icon="ic:baseline-star" /></span
+        >
+      </p>
     </div>
   </main>
-  <div
-    class="relative mx-auto my-8 min-w-[80%] w-[60vw] max-w-[768px] h-[40vw] max-h-[420px] z-[1]"
-  >
-    <iframe
-      class="absolute top-0 left-0 w-full h-full"
-      allowfullscreen
-      title={serie.name}
-      width="100%"
-      height="100%"
-      src={"https://www.youtube.com/embed/" + trailer[0]}
-      frameborder="0"
-    />
-  </div>
+
+  {#if trailer.length}
+
+  <h2 class="mt-8 text-center text-2xl font-bold">Trailer: </h2>
+  
+    <article
+      class="relative mx-auto my-8 min-w-[320px] w-[60vw] max-w-[768px] h-[40vw] max-h-[420px] z-[1]"
+    >
+      <iframe
+        class="absolute top-0 left-0 w-full h-full"
+        allowfullscreen
+        title={serie.name}
+        width="100%"
+        height="100%"
+        src={"https://www.youtube.com/embed/" + trailer[0]}
+        frameborder="0"
+      />
+    </article>
+  {/if}
 </section>
 
 <style>

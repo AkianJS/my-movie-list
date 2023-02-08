@@ -1,17 +1,24 @@
 <script lang="ts">
+  import Icon from "@iconify/svelte";
   import type { PageData } from "../routes/movies/[slug]/$types";
 
 
 
     export let data:PageData;
 
-    let { movie, images } = data;
+    let { movie, images, videos } = data;
+
   const backdropImage = images.backdrops[0]
     ? `https://image.tmdb.org/t/p/original${images.backdrops[0].file_path}`
     : "/src/assets/image-placeholder.png";
   const posterImage = images.posters[0]
     ? `https://image.tmdb.org/t/p/original${images.posters[0].file_path}`
     : "/src/assets/image-placeholder.png";
+
+    const trailer = videos.results.map(
+    ({ site, key }: { site: string; key: string }) =>
+      site === "YouTube" ? key : null
+  );
 </script>
 
 <section class="min-h-screen w-full bg-gradient-to-tr from-zinc-600 to-zinc-700">
@@ -36,8 +43,41 @@
       >
         <h1><strong> Title: </strong>{movie.title}</h1>
         <p><strong> Description: </strong>{movie.overview}</p>
+        <p><strong> Estreno: </strong>{movie.release_date}</p>
+        <p>
+          <strong>Géneros: </strong>{movie.genres
+            ?.map((item) => item.name)
+            .join(", ")}
+        </p>
+        <p class="flex gap-2 items-center">
+          <strong>Puntuación:</strong>
+          {movie.vote_average.toFixed(2)}
+          <span class="text-yellow-400">
+            <Icon width="28" icon="ic:baseline-star" /></span
+          >
+        </p>
       </div>
     </main>
+
+    {#if trailer.length}
+
+    <h2 class="mt-8 text-center text-2xl font-bold">Trailer: </h2>
+
+    <article
+    class="relative mx-auto my-8 min-w-[320px] w-[60vw] max-w-[768px] h-[40vw] max-h-[420px] z-[1]"
+    >
+      <iframe
+        class="absolute top-0 left-0 w-full h-full"
+        allowfullscreen
+        title={movie.title}
+        width="100%"
+        height="100%"
+        src={"https://www.youtube.com/embed/" + trailer[0]}
+        frameborder="0"
+      />
+    </article>
+  {/if}
+
   </section>
   
   <style>

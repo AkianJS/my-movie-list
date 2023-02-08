@@ -6,7 +6,7 @@
 
 <header class="max-w-5xl mx-auto my-8">
   <Splide
-    options={{ rewind: true, autoplay: true, }}
+    options={{ rewind: true, autoplay: true, lazyLoad: "sequential"}}
     hasTrack={false}
     aria-label="Header Slider"
   >
