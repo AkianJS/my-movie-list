@@ -1,4 +1,5 @@
 <script lang="ts">
+  import placeholder from "$lib/assets/image-placeholder.png"
   import { fly } from "svelte/transition";
   import type { SeriesInterface } from "../interface/Serie";
   import PrevAndNext from "./PrevAndNext.svelte";
@@ -28,7 +29,7 @@
               height="348"
               src={movie.poster_path
                 ? image + movie.poster_path
-                : "/src/assets/image-placeholder.png"}
+                : placeholder}
               alt={movie.name}
             />
             <h1 class="text-center font-bold">{movie.name}</h1>

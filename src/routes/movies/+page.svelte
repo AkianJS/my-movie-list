@@ -9,4 +9,4 @@
 
 </script>
 
-<MoviesGrid animation={data.animation} movies={data.movies} />
+<MoviesGrid queryParams={data.filter} animation={data.animation} movies={data.movies} />

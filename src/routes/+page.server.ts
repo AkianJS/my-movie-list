@@ -4,6 +4,8 @@ import type { MovieInterface } from "../interface/Movie";
 import type { SeriesInterface } from "../interface/Serie";
 import type { PageServerLoad } from "./$types";
 
+export const prerender = true;
+
 export const load: PageServerLoad = (async () => {
   const movies: MovieInterface = await getMovies("/discover/movie?language=es&sort_by=revenue.desc");
   const series: SeriesInterface = await getMovies("/discover/tv?language=es&sort_by=vote_average.desc");

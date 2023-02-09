@@ -1,17 +1,16 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
-
   export let isLoadMore: boolean;
   export let page: number;
   export let totalPages: number;
   export let direction: string;
 
   const handleNextPage = () => {
-    goto(`/${direction}?page=${page + 1}`);
+    goto(`/${direction}&page=${page + 1}`);
   };
 
   const handlePrevPage = () => {
-    goto(`/${direction}?page=${page - 1}`);
+    goto(`/${direction}&page=${page - 1}`);
   };
 </script>
 
