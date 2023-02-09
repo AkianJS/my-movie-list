@@ -1,16 +1,17 @@
 <script lang="ts">
   import Icon from "@iconify/svelte";
   import type { PageData } from "../routes/series/[slug]/$types";
+  import placeholder from "$lib/assets/image-placeholder.png"
 
   export let data: PageData;
 
   let { serie, images, videos } = data;
-  const backdropImage = images.backdrops[0]
+  const backdropImage = images.backdrops.length > 0
     ? `https://image.tmdb.org/t/p/original${images.backdrops[0].file_path}`
-    : "/src/assets/image-placeholder.png";
-  const posterImage = images.posters[0]
+    : placeholder;
+  const posterImage = images.posters.length > 0
     ? `https://image.tmdb.org/t/p/original${images.posters[0].file_path}`
-    : "/src/assets/image-placeholder.png";
+    : placeholder;
 
   const trailer = videos.results.map(
     ({ site, key }: { site: string; key: string }) =>

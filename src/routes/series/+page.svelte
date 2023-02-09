@@ -1,5 +1,4 @@
 <script lang="ts">
-  import PrevAndNext from "../../components/PrevAndNext.svelte";
   import SeriesGrid from "../../components/SeriesGrid.svelte";
   import type { PageData } from "./$types";
   export let data: PageData;
@@ -10,5 +9,5 @@
     }, 100);
 </script>
 
-<SeriesGrid animation={data.animation} series={data.series} />
+<SeriesGrid filter={data.filter} animation={data.animation} series={data.series} />
 

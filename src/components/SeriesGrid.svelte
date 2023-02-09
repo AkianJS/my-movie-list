@@ -1,22 +1,24 @@
 <script lang="ts">
-  import placeholder from "$lib/assets/image-placeholder.png"
+  import placeholder from "$lib/assets/image-placeholder.png";
   import { fly } from "svelte/transition";
   import type { SeriesInterface } from "../interface/Serie";
   import PrevAndNext from "./PrevAndNext.svelte";
   export let series: SeriesInterface;
   export let animation: boolean;
-
+  export let filter:string = "";
   export let isLoadMore = true;
 
   const image = "https://image.tmdb.org/t/p/w500";
 </script>
 
-<PrevAndNext
-  direction="series"
-  {isLoadMore}
-  page={series.page}
-  totalPages={series.total_pages}
-/>
+{#if isLoadMore}
+  <PrevAndNext
+    direction={filter ? `series?filter=${filter}` : "series?"}
+    page={series.page}
+    totalPages={series.total_pages}
+  />
+{/if}
+
 <div class="my-6">
   <ul>
     {#if animation}
@@ -27,9 +29,7 @@
               class="h-[348px]"
               width="232"
               height="348"
-              src={movie.poster_path
-                ? image + movie.poster_path
-                : placeholder}
+              src={movie.poster_path ? image + movie.poster_path : placeholder}
               alt={movie.name}
             />
             <h1 class="text-center font-bold">{movie.name}</h1>
@@ -38,12 +38,14 @@
       {/each}
     {/if}
   </ul>
-  <PrevAndNext
-    direction="series"
-    {isLoadMore}
-    page={series.page}
-    totalPages={series.total_pages}
-  />
+
+  {#if isLoadMore}
+    <PrevAndNext
+      direction="series"
+      page={series.page}
+      totalPages={series.total_pages}
+    />
+  {/if}
 </div>
 
 <style>

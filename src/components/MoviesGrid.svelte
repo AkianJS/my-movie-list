@@ -7,17 +7,18 @@
   export let movies: MovieInterface;
   export let isLoadMore: boolean = true;
   export let animation: boolean;
-  export let queryParams:string;
-  
+  export let queryParams: string = "";
+
   const image = "https://image.tmdb.org/t/p/w500";
 </script>
 
-<PrevAndNext
-  direction={queryParams ? `movies?filter=${queryParams}` : `movies?`}
-  {isLoadMore}
-  page={movies.page}
-  totalPages={movies.total_pages}
-/>
+{#if isLoadMore}
+  <PrevAndNext
+    direction={queryParams ? `movies?filter=${queryParams}` : `movies?`}
+    page={movies.page}
+    totalPages={movies.total_pages}
+  />
+{/if}
 
 <div class="my-6">
   <ul>
@@ -38,13 +39,13 @@
       {/each}
     {/if}
   </ul>
-
-  <PrevAndNext
-    direction="movies"
-    {isLoadMore}
-    page={movies.page}
-    totalPages={movies.total_pages}
-  />
+  {#if isLoadMore}
+    <PrevAndNext
+      direction="movies"
+      page={movies.page}
+      totalPages={movies.total_pages}
+    />
+  {/if}
 </div>
 
 <style>

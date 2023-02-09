@@ -15,8 +15,8 @@ export const load = (async ({ url }) => {
     "upcoming": "/movie/upcoming?",
     "teather": "/movie/now_playing?",
     "discover": "/discover/movie?",
-
   }
+  
   const page = url.searchParams.get("page") || "";
   const movies:MovieInterface = await getMovies(`${filters[filter]}&language=es&page=${page}`);
 

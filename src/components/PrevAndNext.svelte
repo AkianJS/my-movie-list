@@ -1,6 +1,5 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
-  export let isLoadMore: boolean;
   export let page: number;
   export let totalPages: number;
   export let direction: string;
@@ -14,7 +13,6 @@
   };
 </script>
 
-{#if isLoadMore}
   <div class="mt-8 flex gap-6 justify-center items-center">
     {#if +page > 1}
       <button on:click={handlePrevPage}>««</button>
@@ -29,4 +27,3 @@
       <button on:click={handleNextPage}>»»</button>
     {/if}
   </div>
-{/if}

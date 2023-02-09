@@ -66,7 +66,9 @@
         <div
           on:mouseenter={() => (movieSubMenu = true)}
           transition:slide={{ duration: 400 }}
-          class={`max-md:pl-3 flex flex-col justify-center  gap-4 overflow-hidden text-base ${!isMenuOpen ? "pl-3" : "pl-6"}`}
+          class={`max-md:pl-3 flex flex-col justify-center  gap-4 overflow-hidden text-base ${
+            !isMenuOpen ? "pl-3" : "pl-6"
+          }`}
         >
           <a href="/movies?filter=top&page=1"
             ><span class="text-transparent bg-white"
@@ -108,7 +110,9 @@
       {#if serieSubMenu}
         <div
           transition:slide={{ duration: 400 }}
-          class={`max-md:pl-3 flex flex-col justify-center  gap-4 overflow-hidden text-base  ${!isMenuOpen ? "pl-3" : "pl-6"} `}
+          class={`max-md:pl-3 flex flex-col justify-center  gap-4 overflow-hidden text-base  ${
+            !isMenuOpen ? "pl-3" : "pl-6"
+          } `}
         >
           <a href="/series?filter=top"
             ><span class="text-transparent bg-white"
@@ -119,25 +123,15 @@
               /></span
             > Top</a
           >
-          <a href="/series?filter=news"
+          <a href="/series?filter=airing"
             ><span
               ><Icon
-                icon="ic:outline-fiber-new"
+                icon="mdi:remote-tv"
                 color="white"
                 width="20"
                 height="20"
               /></span
-            > Nuevas</a
-          >
-          <a href="/series?filter=upcoming"
-            ><span
-              ><Icon
-                icon="emojione-monotone:soon-arrow"
-                color="white"
-                width="20"
-                height="20"
-              /></span
-            > Llegando</a
+            > Al aire</a
           >
         </div>
       {/if}
