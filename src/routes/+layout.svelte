@@ -1,16 +1,42 @@
-<script>
+<script lang="ts">
   import "../app.css";
   import Icon from "@iconify/svelte";
   import Logo from "../components/svg/logo.svelte";
   import NavSearch from "../components/layout/NavSearch.svelte";
   import { slide } from "svelte/transition";
+  import { onMount } from "svelte";
+  import { goto, invalidateAll } from "$app/navigation";
+  import supabase from "$lib/utils/supabase";
+  import { enhance, type SubmitFunction } from "$app/forms";
+  import type { PageData } from "./$types";
 
   let isMenuOpen = true;
   let movieSubMenu = false;
   let serieSubMenu = false;
+  export let data: PageData;
+
+  onMount(() => {
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange(() => {
+      invalidateAll();
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
+  });
 
   const toggleMenu = () => {
     isMenuOpen = !isMenuOpen;
+  };
+
+  const handleLogout: SubmitFunction = async ({ cancel }) => {
+    const { error } = await supabase.auth.signOut();
+
+    if (error) return alert("No se pudo cerrar sesión");
+
+    cancel();
   };
 </script>
 
@@ -32,10 +58,34 @@
       </button>
     </div>
 
-    <nav class=" h-full">
-      <ul class="max-w-screen-xl mx-auto h-full flex items-center gap-6">
+    <nav class="w-full h-full">
+      <ul class="mx-auto h-full flex justify-start items-center gap-6">
         <li><svelte:component this={Logo} /></li>
+
         <li><NavSearch /></li>
+        {#if !data.session}
+          <li
+            class="bg-emerald-500 py-1 px-2 ml-auto rounded-lg duration-150 hover:bg-emerald-600"
+          >
+            <button on:click={() => goto("/login")}>Login</button>
+          </li>
+        {/if}
+        
+        {#if data.session}
+          <li
+            class="bg-red-500 py-1 px-2 ml-auto mr-6 rounded-lg duration-150 hover:bg-red-600"
+          >
+            <form use:enhance={handleLogout} action="/logout" method="POST">
+              <button type="submit">Logout</button>
+            </form>
+          </li>
+        {:else}
+          <li
+            class="bg-emerald-500 py-1 px-2 mr-6 rounded-lg duration-150 hover:bg-emerald-600"
+          >
+            <button on:click={() => goto("/register")}>Registrarse</button>
+          </li>
+        {/if}
       </ul>
     </nav>
   </div>
@@ -71,9 +121,9 @@
           }`}
         >
           <a href="/movies?filter=top&page=1"
-            ><span class="text-transparent bg-white"
+            ><span class="text-white "
               ><Icon
-                icon="emojione-v1:top-arrow"
+                icon="emojione-monotone:top-arrow"
                 width="20"
                 height="20"
               /></span
@@ -115,9 +165,9 @@
           } `}
         >
           <a href="/series?filter=top"
-            ><span class="text-transparent bg-white"
+            ><span class="text-white"
               ><Icon
-                icon="emojione-v1:top-arrow"
+                icon="emojione-monotone:top-arrow"
                 width="20"
                 height="20"
               /></span

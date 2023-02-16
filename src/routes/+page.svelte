@@ -25,7 +25,7 @@
 
 <section class="px-4 ">
   <h1 class="my-6 font-semibold">Series que no te podés perder!</h1>
-  <SeriesGrid animation={data.animation} series={data.series} />
+  <SeriesGrid isLoadMore={false} animation={data.animation} series={data.series} />
 </section>
 
 <style>
