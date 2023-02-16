@@ -4,6 +4,14 @@ import type { ImageInterface } from "../../../interface/Images";
 import type { MovieDetail } from "../../../interface/Movie";
 import type { PageServerLoad } from "./$types";
 
+type VideosType = {
+  results: {
+    type:string
+    site: string
+    key: string
+  }[]
+}
+
 export const load: PageServerLoad = (async ({ params }) => {
   let movie: MovieDetail = await getMovies(
     `/movie/${params.slug}?language=es`
@@ -19,7 +27,7 @@ export const load: PageServerLoad = (async ({ params }) => {
     `/movie/${params.slug}/images`
   );
 
-  const videos = await getMovies(`/movie/${params.slug}/videos`)
+  const videos:VideosType = await getMovies(`/movie/${params.slug}/videos`)
 
   if (movie) {
     return {

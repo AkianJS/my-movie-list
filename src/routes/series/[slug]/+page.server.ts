@@ -4,6 +4,14 @@ import type { ImageInterface } from "../../../interface/Images";
 import type { Serie } from "../../../interface/Serie";
 import type { PageServerLoad } from "./$types";
 
+type VideosTypes = {
+  results: {
+    site: string;
+    key:string;
+    type: string;
+  }[]
+}
+
 export const load: PageServerLoad = (async ({ params }) => {
   let serie: Serie = await getMovies(
     `/tv/${params.slug}?language=es`
@@ -19,7 +27,7 @@ export const load: PageServerLoad = (async ({ params }) => {
     `/tv/${params.slug}/images`
   );
 
-  const videos = await getMovies(`/tv/${params.slug}/videos`)
+  const videos:VideosTypes = await getMovies(`/tv/${params.slug}/videos`)
 
   if (serie) {
     return {
