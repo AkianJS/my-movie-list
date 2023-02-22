@@ -5,7 +5,7 @@
   import PrevAndNext from "./PrevAndNext.svelte";
   export let series: SeriesInterface;
   export let animation: boolean;
-  export let filter:string = "";
+  export let filter: string = "";
   export let isLoadMore = true;
 
   const image = "https://image.tmdb.org/t/p/w500";
@@ -40,11 +40,13 @@
   </ul>
 
   {#if isLoadMore}
-    <PrevAndNext
-      direction="series"
-      page={series.page}
-      totalPages={series.total_pages}
-    />
+    {#if animation}
+      <PrevAndNext
+        direction="series"
+        page={series.page}
+        totalPages={series.total_pages}
+      />
+    {/if}
   {/if}
 </div>
 

@@ -40,11 +40,13 @@
     {/if}
   </ul>
   {#if isLoadMore}
-    <PrevAndNext
-      direction="movies"
-      page={movies.page}
-      totalPages={movies.total_pages}
-    />
+    {#if animation}
+      <PrevAndNext
+        direction="movies"
+        page={movies.page}
+        totalPages={movies.total_pages}
+      />
+    {/if}
   {/if}
 </div>
 

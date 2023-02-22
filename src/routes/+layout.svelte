@@ -129,15 +129,15 @@
               /></span
             > Top</a
           >
-          <a href="/movies?filter=news"
+          <a href="/movies?filter=teather"
             ><span
               ><Icon
-                icon="ic:outline-fiber-new"
+                icon="arcticons:cinema-hd"
                 color="white"
                 width="20"
                 height="20"
               /></span
-            > Nuevas</a
+            > Cine</a
           >
           <a href="/movies?filter=upcoming">
             <span
@@ -147,7 +147,7 @@
                 width="20"
                 height="20"
               /></span
-            > Llegando</a
+            > Nuevas</a
           >
         </div>
       {/if}

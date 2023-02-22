@@ -15,7 +15,7 @@
 <CarouselComp images={data.backdrops} />
 
 <section class="px-4">
-  <h1 class="my-6 font-semibold">Descubre nuevas películas..!</h1>
+  <h1 class="my-6 font-semibold">Descubre grandes títulos..!</h1>
   <MoviesGrid
     animation={data.animation}
     isLoadMore={false}

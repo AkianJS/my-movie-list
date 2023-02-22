@@ -1,0 +1,12 @@
+.svelte-kit
+.vercel
+node_modules
+yarn-error.log
+yarn.lock
+
+.env
+.eslintrc.js
+.eslintignore
+.prettierrc.js
+readme.md
+
