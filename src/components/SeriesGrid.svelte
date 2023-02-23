@@ -41,11 +41,11 @@
 
   {#if isLoadMore}
     {#if animation}
-      <PrevAndNext
-        direction="series"
-        page={series.page}
-        totalPages={series.total_pages}
-      />
+    <PrevAndNext
+    direction={filter ? `series?filter=${filter}` : "series?"}
+    page={series.page}
+    totalPages={series.total_pages}
+  />
     {/if}
   {/if}
 </div>

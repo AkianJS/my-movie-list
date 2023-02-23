@@ -41,11 +41,11 @@
   </ul>
   {#if isLoadMore}
     {#if animation}
-      <PrevAndNext
-        direction="movies"
-        page={movies.page}
-        totalPages={movies.total_pages}
-      />
+    <PrevAndNext
+    direction={queryParams ? `movies?filter=${queryParams}` : `movies?`}
+    page={movies.page}
+    totalPages={movies.total_pages}
+  />
     {/if}
   {/if}
 </div>
