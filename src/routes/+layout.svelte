@@ -40,13 +40,9 @@
   };
 </script>
 
-<div
-  class={`grid duration-200 overflow-hidden ${
-    isMenuOpen ? "grid-layout" : "grid-layout-closed"
-  }`}
->
+
   <div
-    class="w-full h-16 bg-zinc-800 text-white shadow-md flex items-center col-span-2 sticky right-0 top-0 z-10"
+    class="w-full h-16 bg-zinc-800 text-white shadow-md flex items-center col-span-2 sticky top-0 z-10"
   >
     <div class="inline-block ml-2 mr-6">
       <button class="max-md:hidden" on:click={toggleMenu}>
@@ -90,13 +86,13 @@
     </nav>
   </div>
 
-  <aside class="bg-zinc-800 text-white duration-200 h-full max-w-full">
+  <aside class="bg-zinc-800 text-white duration-200 max-w-full fixed top-16 bottom-0">
     <nav
       on:mouseleave={() => {
         movieSubMenu = false;
         serieSubMenu = false;
       }}
-      class={`flex flex-col justify-start gap-4 text-lg duration-100 max-md:w-[3rem] h-full fixed overflow-hidden ${
+      class={`flex flex-col justify-start gap-4 text-lg duration-100 max-md:w-[3rem] h-full overflow-hidden ${
         isMenuOpen ? "w-40" : "max-w-[3rem] w-12"
       } `}
     >
@@ -188,10 +184,10 @@
     </nav>
   </aside>
 
-  <div class="bg-zinc-600 min-h-[90vh]">
+  <div class="bg-zinc-600 min-h-[90vh]  {isMenuOpen ? 'ml-40 duration-200' : 'ml-12'}">
     <slot />
   </div>
-</div>
+
 
 <style>
   a {

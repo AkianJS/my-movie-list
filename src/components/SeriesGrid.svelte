@@ -19,7 +19,7 @@
   />
 {/if}
 
-<div class="my-6">
+<div class="py-6">
   <ul>
     {#if animation}
       {#each series.results as movie, i}

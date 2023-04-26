@@ -4,7 +4,7 @@
   export let images: { title: string; src: string }[];
 </script>
 
-<header class="max-w-5xl mx-auto my-8">
+<header class="max-w-5xl mx-auto mb-8">
   <Splide
     options={{ rewind: true, autoplay: true, lazyLoad: "sequential"}}
     hasTrack={false}
