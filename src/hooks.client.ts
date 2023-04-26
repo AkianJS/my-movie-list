@@ -1,1 +1,1 @@
-import '$lib/utils/supabase'
+import '$lib/utils/supabase';
