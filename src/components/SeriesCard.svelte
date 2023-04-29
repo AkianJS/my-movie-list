@@ -24,14 +24,14 @@
 </script>
 
 <section
-    class="min-h-screen w-full bg-gradient-to-tr from-zinc-600 to-zinc-700 mb-8">
-    <div class="image2-container absolute top-16 right-0 opacity-70">
+    class="mb-8 min-h-screen w-full bg-gradient-to-tr from-zinc-600 to-zinc-700">
+    <div class="image2-container absolute right-0 top-16 opacity-70">
         <div
             style={`background-image: url(${backdropImage})`}
-            class="image-container absolute bg-teal-800 top-0 right-0" />
+            class="image-container absolute right-0 top-0 bg-teal-800" />
     </div>
     <main
-        class="flex gap-6 flex-wrap px-8 relative max-[1080px]:justify-center">
+        class="relative flex flex-wrap gap-6 px-8 max-[1080px]:justify-center">
         <div class="mt-8">
             <img
                 class="object-cover"
@@ -41,7 +41,7 @@
                 alt="Movie poster" />
         </div>
         <div
-            class="my-8 min-w-[240px] max-w-lg text-start text-xl text-neutral-200 space-y-3">
+            class="my-8 min-w-[240px] max-w-lg space-y-3 text-start text-xl text-neutral-200">
             <h1><strong> Título original: </strong>{serie.original_name}</h1>
             <h1><strong> Título: </strong>{serie.name}</h1>
             <p><strong> Descripción: </strong>{serie.overview}</p>
@@ -56,7 +56,7 @@
                     .join(', ')}
             </p>
             <p><strong>Espisodios: </strong> {serie.number_of_episodes}</p>
-            <p class="flex gap-2 items-center">
+            <p class="flex items-center gap-2">
                 <strong>Puntuación:</strong>
                 {serie.vote_average.toFixed(2)}
                 <span class="text-yellow-400">
@@ -69,9 +69,9 @@
         <h2 class="mt-8 text-center text-2xl font-bold">Trailer:</h2>
 
         <article
-            class="relative mx-auto my-8 min-w-[320px] w-[60vw] max-w-[768px] h-[40vw] max-h-[420px] z-[1]">
+            class="relative z-[1] mx-auto my-8 h-[40vw] max-h-[420px] w-[60vw] min-w-[320px] max-w-[768px]">
             <iframe
-                class="absolute top-0 left-0 w-full h-full"
+                class="absolute left-0 top-0 h-full w-full"
                 allowfullscreen
                 title={serie.name}
                 width="100%"

@@ -4,12 +4,12 @@
     export let images: { title: string; src: string }[];
 </script>
 
-<header class="max-w-5xl mx-auto mb-8">
+<header class="mx-auto mb-8 max-w-5xl">
     <Splide
         options={{ rewind: true, autoplay: true, lazyLoad: 'sequential' }}
         hasTrack={false}
         aria-label="Header Slider">
-        <div class="custom-wrapper max-w-5xl mx-auto">
+        <div class="custom-wrapper mx-auto max-w-5xl">
             <SplideTrack>
                 {#each images as item}
                     <SplideSlide>

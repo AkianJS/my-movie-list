@@ -8,12 +8,12 @@
     };
 </script>
 
-<div class="max-w-md w-[40vw] relative">
+<div class="relative w-[40vw] max-w-md">
     <input
         placeholder="Qué películas buscas?"
         on:keypress={(e) => (e.key === 'Enter' ? handleSearch() : undefined)}
         bind:value={search}
-        class="pl-10 py-1 bg-zinc-700 rounded-md w-full outline-none"
+        class="w-full rounded-md bg-zinc-700 py-1 pl-10 outline-none"
         type="text" />
     <button
         on:click={handleSearch}

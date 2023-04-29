@@ -8,14 +8,14 @@
 </script>
 
 <aside
-    class="bg-zinc-800 text-white duration-200 max-w-full fixed top-16 bottom-0">
+    class="fixed bottom-0 top-16 max-w-full bg-zinc-800 text-white duration-200">
     <nav
         on:mouseleave={() => {
             movieSubMenu = false;
             serieSubMenu = false;
         }}
-        class={`flex flex-col justify-start gap-4 text-lg duration-100 max-md:w-[3rem] h-full overflow-hidden ${
-            isMenuOpen ? 'w-40' : 'max-w-[3rem] w-12'
+        class={`flex h-full flex-col justify-start gap-4 overflow-hidden text-lg duration-100 max-md:w-[3rem] ${
+            isMenuOpen ? 'w-40' : 'w-12 max-w-[3rem]'
         } `}>
         <a data-sveltekit-reload href="/">
             <span class="text-2xl">
@@ -32,7 +32,7 @@
             <div
                 on:mouseenter={() => (movieSubMenu = true)}
                 transition:slide={{ duration: 400 }}
-                class={`max-md:pl-3 flex flex-col justify-center  gap-4 overflow-hidden text-base ${
+                class={`flex flex-col justify-center gap-4 overflow-hidden text-base max-md:pl-3 ${
                     !isMenuOpen ? 'pl-3' : 'pl-6'
                 }`}>
                 <a href="/movies?filter=top&page=1"
@@ -65,7 +65,7 @@
         {#if serieSubMenu}
             <div
                 transition:slide={{ duration: 400 }}
-                class={`max-md:pl-3 flex flex-col justify-center  gap-4 overflow-hidden text-base  ${
+                class={`flex flex-col justify-center gap-4  overflow-hidden text-base max-md:pl-3  ${
                     !isMenuOpen ? 'pl-3' : 'pl-6'
                 } `}>
                 <a href="/series?filter=top"

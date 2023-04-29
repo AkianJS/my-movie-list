@@ -13,8 +13,8 @@
 </script>
 
 <div
-    class="w-full h-16 bg-zinc-800 text-white shadow-md flex items-center col-span-2 sticky top-0 z-10">
-    <div class="inline-block ml-2 mr-6">
+    class="sticky top-0 z-10 flex h-16 w-full items-center bg-zinc-800 text-white shadow-md">
+    <div class="ml-2 mr-6 inline-block">
         <button class="max-md:hidden" on:click={toggleMenu}>
             {#if isMenuOpen}
                 <Icon icon="ic:baseline-close" width="32" height="32" />
@@ -24,21 +24,21 @@
         </button>
     </div>
 
-    <nav class="w-full h-full">
-        <ul class="mx-auto h-full flex justify-start items-center gap-6">
+    <nav class="h-full w-full">
+        <ul class="mx-auto flex h-full items-center justify-start gap-6">
             <li><svelte:component this={Logo} /></li>
 
             <li><NavSearch /></li>
             {#if !data.session}
                 <li
-                    class="bg-emerald-500 py-1 px-2 ml-auto rounded-lg duration-150 hover:bg-emerald-600">
+                    class="ml-auto rounded-lg bg-emerald-500 px-2 py-1 duration-150 hover:bg-emerald-600">
                     <button on:click={() => goto('/login')}>Login</button>
                 </li>
             {/if}
 
             {#if data.session}
                 <li
-                    class="bg-red-500 py-1 px-2 ml-auto mr-6 rounded-lg duration-150 hover:bg-red-600">
+                    class="ml-auto mr-6 rounded-lg bg-red-500 px-2 py-1 duration-150 hover:bg-red-600">
                     <form
                         use:enhance={handleLogout}
                         action="/logout"
@@ -48,7 +48,7 @@
                 </li>
             {:else}
                 <li
-                    class="bg-emerald-500 py-1 px-2 mr-6 rounded-lg duration-150 hover:bg-emerald-600">
+                    class="mr-6 rounded-lg bg-emerald-500 px-2 py-1 duration-150 hover:bg-emerald-600">
                     <button on:click={() => goto('/register')}
                         >Registrarse</button>
                 </li>

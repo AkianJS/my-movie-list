@@ -43,7 +43,7 @@
 <Sidebar {isMenuOpen} {movieSubMenu} {serieSubMenu} />
 
 <div
-    class="bg-zinc-600 min-h-[90vh] {isMenuOpen
+    class="min-h-[90vh] bg-zinc-600 {isMenuOpen
         ? 'ml-40 duration-200'
         : 'ml-12'}">
     <slot />
