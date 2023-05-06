@@ -1,6 +1,6 @@
 <script lang="ts">
     import { goto } from '$app/navigation';
-    import Icon from '@iconify/svelte';
+    import { Search } from 'lucide-svelte';
     let search: string;
 
     let handleSearch = async () => {
@@ -19,6 +19,6 @@
         on:click={handleSearch}
         type="submit"
         class="absolute left-0 text-zinc-400">
-        <Icon icon="ic:baseline-search" width="32" height="32" />
+        <Search />
     </button>
 </div>

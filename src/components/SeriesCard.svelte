@@ -1,7 +1,7 @@
 <script lang="ts">
-    import Icon from '@iconify/svelte';
     import type { PageData } from '../routes/series/[slug]/$types';
     import placeholder from '$lib/assets/image-placeholder.png';
+    import { Star } from 'lucide-svelte';
 
     export let data: PageData;
 
@@ -59,8 +59,7 @@
             <p class="flex items-center gap-2">
                 <strong>Puntuación:</strong>
                 {serie.vote_average.toFixed(2)}
-                <span class="text-yellow-400">
-                    <Icon width="28" icon="ic:baseline-star" /></span>
+                <span class="text-yellow-400"> <Star /></span>
             </p>
         </div>
     </main>

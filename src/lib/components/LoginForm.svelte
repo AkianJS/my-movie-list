@@ -1,6 +1,6 @@
 <script lang="ts">
     import { enhance } from '$app/forms';
-    import Icon from '@iconify/svelte';
+    import Button from './ui/Button.svelte';
 
     export let title: 'Ingresar' | 'Registrarse';
     export let error: string | undefined;
@@ -39,11 +39,9 @@
         <form class="mx-auto" method="post" action="?/google">
             <button
                 class="mx-auto inline-flex items-center rounded-lg bg-white px-2 py-1 text-blue-400 duration-150 hover:scale-105"
-                >{title} con <Icon
-                    class="ml-1"
-                    icon="bi:google" />oogle</button>
+                >{title} con <strong style="margin-left: .25rem;">G</strong>
+                oogle</button>
         </form>
-        <button type="submit" class="rounded-md bg-emerald-500 px-4 py-2"
-            >{title}</button>
+        <Button type="submit">{title}</Button>
     </form>
 </div>

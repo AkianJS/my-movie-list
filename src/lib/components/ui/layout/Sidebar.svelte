@@ -1,5 +1,15 @@
 <script lang="ts">
-    import Icon from '@iconify/svelte';
+    import {
+        ArrowBigUp,
+        Home,
+        MoveIcon,
+        CombineIcon,
+        Film,
+        Tv,
+        Airplay,
+        Clapperboard,
+        ScreenShare,
+    } from 'lucide-svelte';
     import { slide } from 'svelte/transition';
 
     export let movieSubMenu: boolean;
@@ -19,13 +29,13 @@
         } `}>
         <a data-sveltekit-reload href="/">
             <span class="text-2xl">
-                <Icon inline icon="ic:sharp-home" />
+                <Home />
             </span>
             <p>Inicio</p>
         </a>
         <a on:mouseenter={() => (movieSubMenu = true)} href="/movies">
             <span class="text-2xl">
-                <Icon width="24" height="24" icon="ic:outline-local-movies" />
+                <Film />
             </span>
             Películas</a>
         {#if movieSubMenu}
@@ -36,30 +46,16 @@
                     !isMenuOpen ? 'pl-3' : 'pl-6'
                 }`}>
                 <a href="/movies?filter=top&page=1"
-                    ><span class="text-white"
-                        ><Icon
-                            icon="emojione-monotone:top-arrow"
-                            width="20"
-                            height="20" /></span> Top</a>
+                    ><span class="text-white"><ArrowBigUp /></span> Top</a>
                 <a href="/movies?filter=teather"
-                    ><span
-                        ><Icon
-                            icon="arcticons:cinema-hd"
-                            color="white"
-                            width="20"
-                            height="20" /></span> Cine</a>
+                    ><span><Clapperboard /> </span> Cine</a>
                 <a href="/movies?filter=upcoming">
-                    <span
-                        ><Icon
-                            icon="emojione-monotone:soon-arrow"
-                            color="white"
-                            width="20"
-                            height="20" /></span> Nuevas</a>
+                    <span><Airplay /></span> Nuevas</a>
             </div>
         {/if}
         <a on:mouseenter={() => (serieSubMenu = true)} href="/series">
             <span class="text-2xl">
-                <Icon width="24" height="24" icon="ic:outline-tv" />
+                <Tv />
             </span>
             Series</a>
         {#if serieSubMenu}
@@ -69,18 +65,9 @@
                     !isMenuOpen ? 'pl-3' : 'pl-6'
                 } `}>
                 <a href="/series?filter=top"
-                    ><span class="text-white"
-                        ><Icon
-                            icon="emojione-monotone:top-arrow"
-                            width="20"
-                            height="20" /></span> Top</a>
+                    ><span class="text-white"><ArrowBigUp /></span> Top</a>
                 <a href="/series?filter=airing"
-                    ><span
-                        ><Icon
-                            icon="mdi:remote-tv"
-                            color="white"
-                            width="20"
-                            height="20" /></span> Al aire</a>
+                    ><span><ScreenShare /></span> Al aire</a>
             </div>
         {/if}
     </nav>

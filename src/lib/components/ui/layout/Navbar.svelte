@@ -2,10 +2,11 @@
     import type { PageData } from '.svelte-kit/types/src/routes/$types';
     import { goto } from '$app/navigation';
     import Logo from '$lib/assets/logo.svelte';
-    import Icon from '@iconify/svelte';
+    import { Menu, X } from 'lucide-svelte';
 
     import NavSearch from './NavSearch.svelte';
     import { enhance, type SubmitFunction } from '$app/forms';
+
     export let toggleMenu: () => void;
     export let isMenuOpen: boolean;
     export let data: PageData;
@@ -13,13 +14,13 @@
 </script>
 
 <div
-    class="sticky top-0 z-10 flex h-16 w-full items-center bg-zinc-800 text-white shadow-md">
+    class="sticky top-0 z-10 flex h-16 w-full items-center bg-zinc-800 text-white">
     <div class="ml-2 mr-6 inline-block">
         <button class="max-md:hidden" on:click={toggleMenu}>
             {#if isMenuOpen}
-                <Icon icon="ic:baseline-close" width="32" height="32" />
+                <X />
             {:else}
-                <Icon icon="ic:baseline-dehaze" width="32" height="32" />
+                <Menu />
             {/if}
         </button>
     </div>
