@@ -10,6 +10,6 @@
 </script>
 
 <MoviesGrid
-    filter={data.filter}
+    query={data.query}
     animation={data.animation}
     movies={data.movies} />

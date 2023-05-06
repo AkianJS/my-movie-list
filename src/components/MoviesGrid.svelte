@@ -7,14 +7,17 @@
     export let movies: MovieInterface;
     export let isLoadMore = true;
     export let animation: boolean;
-    export let queryParams = '';
+    export let filter: string | null = null;
+    export let query: string | null = null;
 
     const image = 'https://image.tmdb.org/t/p/w500';
 </script>
 
 {#if isLoadMore}
     <PrevAndNext
-        direction={queryParams ? `movies?filter=${queryParams}` : `movies?`}
+        direction={filter
+            ? `movies?filter=${filter}`
+            : `movie-search?query=${query}`}
         page={movies.page}
         totalPages={movies.total_pages} />
 {/if}
@@ -42,9 +45,9 @@
     {#if isLoadMore}
         {#if animation}
             <PrevAndNext
-                direction={queryParams
-                    ? `movies?filter=${queryParams}`
-                    : `movies?`}
+                direction={filter
+                    ? `movies?filter=${filter}`
+                    : `movie-search?query=${query}`}
                 page={movies.page}
                 totalPages={movies.total_pages} />
         {/if}

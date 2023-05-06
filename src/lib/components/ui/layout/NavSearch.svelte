@@ -5,7 +5,9 @@
     let search: string;
 
     const handleSearch = async () => {
-        await goto(`/movies?page=1&query=${search}`, { replaceState: false });
+        await goto(`/movie-search?query=${search}&page=1`, {
+            replaceState: false,
+        });
     };
 </script>
 
