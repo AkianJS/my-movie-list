@@ -1,6 +1,7 @@
 <script lang="ts">
     import { Splide, SplideSlide, SplideTrack } from '@splidejs/svelte-splide';
     import '@splidejs/svelte-splide/css';
+
     export let images: { title: string; src: string }[];
 </script>
 
@@ -14,6 +15,7 @@
                 {#each images as item}
                     <SplideSlide>
                         <img
+                            title={item.title}
                             class="mx-auto"
                             width="700"
                             height="300"
