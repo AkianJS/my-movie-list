@@ -1,14 +1,15 @@
 <script lang="ts">
     import { goto } from '$app/navigation';
     import { Search } from 'lucide-svelte';
+
     let search: string;
 
-    let handleSearch = async () => {
+    const handleSearch = async () => {
         await goto(`/movies?page=1&query=${search}`, { replaceState: false });
     };
 </script>
 
-<div class="relative w-[40vw] max-w-md">
+<div class="relative flex w-[40vw] max-w-md items-center">
     <input
         placeholder="Qué películas buscas?"
         on:keypress={(e) => (e.key === 'Enter' ? handleSearch() : undefined)}
@@ -18,7 +19,7 @@
     <button
         on:click={handleSearch}
         type="submit"
-        class="absolute left-0 text-zinc-400">
+        class="absolute left-2 text-zinc-400">
         <Search />
     </button>
 </div>
