@@ -1,7 +1,7 @@
 <script lang="ts">
     import type { PageData } from '.svelte-kit/types/src/routes/$types';
     import { goto } from '$app/navigation';
-    import Logo from '$lib/assets/logo.svelte';
+    import Logo from '$lib/assets/logo.png';
     import { Menu, X } from 'lucide-svelte';
 
     import NavSearch from './NavSearch.svelte';
@@ -27,7 +27,14 @@
 
     <nav class="h-full w-full">
         <ul class="mx-auto flex h-full items-center justify-start gap-6">
-            <li><svelte:component this={Logo} /></li>
+            <li>
+                <img
+                    class="rounded-lg"
+                    width="36"
+                    height="36"
+                    src={Logo}
+                    alt="logo" />
+            </li>
 
             <li><NavSearch /></li>
             {#if !data.session}
