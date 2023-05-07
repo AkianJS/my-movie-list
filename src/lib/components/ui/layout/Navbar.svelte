@@ -1,15 +1,15 @@
 <script lang="ts">
-    import type { PageData } from '.svelte-kit/types/src/routes/$types';
+    import type { LayoutData } from '.svelte-kit/types/src/routes/$types';
     import { goto } from '$app/navigation';
-    import Logo from '$lib/assets/logo.png';
     import { Menu, X } from 'lucide-svelte';
+    import Logo from '$lib/assets/logo.png';
 
     import NavSearch from './NavSearch.svelte';
     import { enhance, type SubmitFunction } from '$app/forms';
 
     export let toggleMenu: () => void;
     export let isMenuOpen: boolean;
-    export let data: PageData;
+    export let data: LayoutData;
     export let handleLogout: SubmitFunction;
 </script>
 

@@ -8,6 +8,7 @@
         await goto(`/movie-search?query=${search}&page=1`, {
             replaceState: false,
         });
+        search = '';
     };
 </script>
 

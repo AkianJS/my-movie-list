@@ -1,28 +1,29 @@
 <script lang="ts">
     import '../app.css';
     import { onMount } from 'svelte';
-    import { invalidateAll } from '$app/navigation';
-    import supabase from '$lib/utils/supabase';
+    import { invalidate } from '$app/navigation';
     import type { SubmitFunction } from '$app/forms';
-    import type { PageData } from './$types';
+    import type { LayoutData } from './$types';
     import Navbar from '$lib/components/ui/layout/Navbar.svelte';
     import Sidebar from '$lib/components/ui/layout/Sidebar.svelte';
 
     let isMenuOpen = true;
     let movieSubMenu = false;
     let serieSubMenu = false;
-    export let data: PageData;
+    export let data: LayoutData;
+
+    $: ({ supabase, session } = data);
 
     onMount(() => {
         const {
             data: { subscription },
-        } = supabase.auth.onAuthStateChange(() => {
-            invalidateAll();
+        } = supabase.auth.onAuthStateChange((event, _session) => {
+            if (_session?.expires_at !== session?.expires_at) {
+                invalidate('supabase:auth');
+            }
         });
 
-        return () => {
-            subscription.unsubscribe();
-        };
+        return () => subscription.unsubscribe();
     });
 
     const toggleMenu = () => {
