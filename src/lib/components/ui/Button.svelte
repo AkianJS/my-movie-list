@@ -1,7 +1,9 @@
 <script lang="ts">
     export let type: 'button' | 'submit' | 'reset' = 'button';
     export let display: 'block' | 'inline-block' = 'inline-block';
-    export let onClick: () => void = () => {};
+    export let onClick: () => void = () => {
+        return;
+    };
 </script>
 
 <button

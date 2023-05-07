@@ -2,8 +2,6 @@
     import {
         ArrowBigUp,
         Home,
-        MoveIcon,
-        CombineIcon,
         Film,
         Tv,
         Airplay,
