@@ -10,7 +10,7 @@ export const load: PageServerLoad = (async () => {
     const movies: MovieInterface = await getMovies(
         '/discover/movie?language=es&sort_by=revenue.desc'
     );
-    const series: SeriesInterface = await getMovies('/discover/tv?language=es');
+    const series: SeriesInterface = await getMovies('/tv/top_rated?page=4');
     const upcoming: MovieInterface = await getMovies('/movie/upcoming');
     const backdrops = upcoming.results
         .filter((item) => item.backdrop_path !== null)
