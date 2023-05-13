@@ -5,7 +5,7 @@
     import PrevAndNext from './PrevAndNext.svelte';
 
     export let movies: MovieInterface;
-    export let isLoadMore = true;
+    export let loadMore = true;
     export let animation: boolean;
     export let filter: string | null = null;
     export let query: string | null = null;
@@ -13,7 +13,7 @@
     const image = 'https://image.tmdb.org/t/p/w500';
 </script>
 
-{#if isLoadMore}
+{#if loadMore}
     <PrevAndNext
         direction={filter
             ? `movies?filter=${filter}`
@@ -42,7 +42,7 @@
             {/each}
         {/if}
     </ul>
-    {#if isLoadMore}
+    {#if loadMore}
         {#if animation}
             <PrevAndNext
                 direction={filter

@@ -41,11 +41,11 @@
 
 <Navbar {toggleMenu} {isMenuOpen} {data} {handleLogout} />
 
-<Sidebar {isMenuOpen} {movieSubMenu} {serieSubMenu} />
+<Sidebar {isMenuOpen} />
 
 <div
-    class="min-h-[90vh] bg-zinc-600 {isMenuOpen
-        ? 'ml-40 duration-200'
+    class="min-h-[90vh] bg-zinc-600 duration-200 {isMenuOpen
+        ? 'ml-36'
         : 'ml-12'}">
     <slot />
 </div>

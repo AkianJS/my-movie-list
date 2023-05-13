@@ -27,15 +27,6 @@
 
     <nav class="h-full w-full">
         <ul class="mx-auto flex h-full items-center justify-start gap-6">
-            <li>
-                <img
-                    class="rounded-lg"
-                    width="36"
-                    height="36"
-                    src={Logo}
-                    alt="logo" />
-            </li>
-
             <li><NavSearch /></li>
             {#if !data.session}
                 <li

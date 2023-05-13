@@ -2,6 +2,7 @@
     import type { PageData } from '../routes/series/[slug]/$types';
     import placeholder from '$lib/assets/image-placeholder.png';
     import { Star } from 'lucide-svelte';
+    import SeriesGrid from './SeriesGrid.svelte';
 
     export let data: PageData;
 
@@ -79,6 +80,13 @@
                 frameborder="0" />
         </article>
     {/if}
+    <hr class="mx-[10%]" />
+
+    <h2 class="mt-8 text-center text-2xl font-bold">Recomendaciones:</h2>
+    <SeriesGrid
+        series={data.recommendations}
+        animation={true}
+        loadMore={false} />
 </section>
 
 <style>

@@ -18,14 +18,14 @@
     <h1 class="my-6 font-semibold">Descubre grandes títulos..!</h1>
     <MoviesGrid
         animation={data.animation}
-        isLoadMore={false}
+        loadMore={false}
         movies={data.movies} />
 </section>
 
 <section class="px-4">
     <h1 class="my-6 font-semibold">Series que no te podés perder!</h1>
     <SeriesGrid
-        isLoadMore={false}
+        loadMore={false}
         animation={data.animation}
         series={data.series} />
 </section>

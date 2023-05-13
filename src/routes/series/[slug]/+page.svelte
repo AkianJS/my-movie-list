@@ -10,4 +10,6 @@
     <meta name="description" content={data.serie.overview} />
 </svelte:head>
 
-<SeriesCard {data} />
+{#key data.serie.id}
+    <SeriesCard {data} />
+{/key}

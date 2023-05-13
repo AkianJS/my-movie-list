@@ -1,7 +1,7 @@
 import { error } from '@sveltejs/kit';
 import getMovies from '../../../api/getMovies';
 import type { ImageInterface } from '../../../interface/Images';
-import type { Serie } from '../../../interface/Serie';
+import type { Serie, SeriesInterface } from '../../../interface/Serie';
 import type { PageServerLoad } from './$types';
 
 type VideosTypes = {
@@ -23,11 +23,17 @@ export const load: PageServerLoad = (async ({ params }) => {
 
     const videos: VideosTypes = await getMovies(`/tv/${params.slug}/videos`);
 
+    const recommendations: SeriesInterface = await getMovies(
+        `/tv/${params.slug}/recommendations`
+    );
+    console.log(serie.name);
+
     if (serie) {
         return {
             serie,
             images,
             videos,
+            recommendations,
         };
     }
     throw error(404, 'No se pudo encontrar la página');

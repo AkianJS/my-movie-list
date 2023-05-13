@@ -6,12 +6,12 @@
     export let series: SeriesInterface;
     export let animation: boolean;
     export let filter = '';
-    export let isLoadMore = true;
+    export let loadMore = true;
 
     const image = 'https://image.tmdb.org/t/p/w500';
 </script>
 
-{#if isLoadMore}
+{#if loadMore}
     <PrevAndNext
         direction={filter ? `series?filter=${filter}` : 'series?'}
         page={series.page}
@@ -39,7 +39,7 @@
         {/if}
     </ul>
 
-    {#if isLoadMore}
+    {#if loadMore}
         {#if animation}
             <PrevAndNext
                 direction={filter ? `series?filter=${filter}` : 'series?'}

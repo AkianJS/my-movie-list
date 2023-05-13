@@ -10,4 +10,6 @@
     <meta name="description" content={data.movie.overview} />
 </svelte:head>
 
-<MovieCard {data} />
+{#key data.movie.id}
+    <MovieCard {data} />
+{/key}

@@ -10,21 +10,24 @@
     } from 'lucide-svelte';
     import { slide } from 'svelte/transition';
 
-    export let movieSubMenu: boolean;
-    export let serieSubMenu: boolean;
     export let isMenuOpen: boolean;
+
+    let movieSubMenu: boolean;
+    let serieSubMenu: boolean;
+    let sidebarWidth: string;
+
+    $: isMenuOpen,
+        (sidebarWidth = isMenuOpen ? 'max-w-[9rem]' : 'max-w-[3rem]');
 </script>
 
 <aside
-    class="fixed bottom-0 top-16 max-w-full bg-zinc-800 text-white duration-200">
+    class={`fixed bottom-0 top-16 w-full bg-zinc-800 text-white duration-200 ${sidebarWidth}`}>
     <nav
         on:mouseleave={() => {
             movieSubMenu = false;
             serieSubMenu = false;
         }}
-        class={`flex h-full flex-col justify-start gap-4 overflow-hidden text-lg duration-100 max-md:w-[3rem] ${
-            isMenuOpen ? 'w-40' : 'w-12 max-w-[3rem]'
-        } `}>
+        class={`flex h-full w-full flex-col justify-start gap-4 overflow-hidden text-lg duration-200 max-md:w-[3rem] ${sidebarWidth} `}>
         <a data-sveltekit-reload href="/">
             <span class="text-2xl">
                 <Home />
